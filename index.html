@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salim ♡ Jannat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#ffd6f3;
+  --bg2:#ead6ff;
+  --bg3:#ffc8dd;
+  --main:#ff3ea5;
+  --purple:#8e44ad;
+  --card:rgba(255,255,255,.78);
+  --text:#7d2b8f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  font-family:"Hind Siliguri",sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  color:var(--text);
+  padding:14px;
+  overflow-x:hidden;
+}
+body.night{
+  --bg1:#190826;
+  --bg2:#35104f;
+  --bg3:#6c1b85;
+  --main:#ff6ed0;
+  --purple:#e4c1ff;
+  --card:rgba(255,255,255,.12);
+  --text:#fff;
+}
+body.ocean{
+  --bg1:#d8f7ff;
+  --bg2:#c8d9ff;
+  --bg3:#e2d1ff;
+  --main:#4776e6;
+  --purple:#274690;
+  --card:rgba(255,255,255,.78);
+  --text:#274690;
+}
+body.rose{
+  --bg1:#ffe0ec;
+  --bg2:#ffb6d9;
+  --bg3:#ffd1d1;
+  --main:#e91e83;
+  --purple:#9d174d;
+  --card:rgba(255,255,255,.8);
+  --text:#9d174d;
+}
+
+.wrap{
+  max-width:980px;
+  margin:auto;
+  background:var(--card);
+  backdrop-filter:blur(18px);
+  border:2px solid rgba(255,255,255,.7);
+  border-radius:32px;
+  padding:20px;
+  box-shadow:0 25px 70px rgba(150,40,160,.28);
+}
+h1{
+  font-family:"Kalam",cursive;
+  text-align:center;
+  font-size:56px;
+  color:var(--main);
+}
+.sub{
+  text-align:center;
+  font-size:24px;
+  font-weight:900;
+  color:var(--purple);
+  margin-bottom:14px;
+}
+.top{
+  display:grid;
+  grid-template-columns:1fr 280px 1fr;
+  gap:16px;
+  align-items:center;
+}
+.card,.box{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:22px;
+  padding:15px;
+  font-weight:900;
+  box-shadow:0 10px 25px rgba(255,62,165,.12);
+}
+body.night .card, body.night .box{
+  background:rgba(255,255,255,.1);
+}
+.msg{
+  margin:10px 0;
+  font-size:18px;
+  line-height:1.5;
+}
+.photoBox{text-align:center}
+.photo{
+  width:250px;
+  height:250px;
+  object-fit:cover;
+  border-radius:50%;
+  border:7px solid white;
+  box-shadow:0 0 0 6px var(--main),0 0 34px rgba(255,62,165,.55);
+}
+.caption{
+  display:inline-block;
+  margin-top:-16px;
+  background:linear-gradient(135deg,var(--main),var(--purple));
+  color:#fff;
+  padding:10px 32px;
+  border-radius:999px;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 10px 25px rgba(255,62,165,.28);
+}
+.themeBtn{
+  border:0;
+  padding:10px 14px;
+  margin:6px;
+  border-radius:14px;
+  color:white;
+  background:linear-gradient(135deg,var(--main),var(--purple));
+  font-weight:900;
+  cursor:pointer;
+}
+.title{
+  text-align:center;
+  color:var(--main);
+  font-size:21px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+.timer{
+  display:grid;
+  grid-template-columns:1fr 1.45fr;
+  gap:16px;
+  align-items:center;
+  margin-top:16px;
+}
+.start{
+  text-align:center;
+  font-size:21px;
+  line-height:1.7;
+  color:var(--purple);
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.time{
+  background:rgba(255,255,255,.8);
+  border-radius:16px;
+  padding:12px 5px;
+  text-align:center;
+}
+body.night .time{background:rgba(255,255,255,.12)}
+.time b{
+  display:block;
+  font-size:30px;
+  color:var(--main);
+}
+.time span{
+  font-size:13px;
+  color:var(--purple);
+}
+.bottomGrid{
+  display:grid;
+  grid-template-columns:1fr 1.7fr;
+  gap:16px;
+  margin-top:16px;
+}
+.heartBtn{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  border:0;
+  font-size:42px;
+  color:white;
+  background:linear-gradient(135deg,#ff8bd6,var(--main));
+  box-shadow:0 0 25px rgba(255,62,165,.45);
+  cursor:pointer;
+}
+.heartBtn:active{transform:scale(.92)}
+.count{
+  margin-top:10px;
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+}
+.count span{
+  color:var(--main);
+  font-size:36px;
+}
+.ecg{
+  height:120px;
+  background:#22052d;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+}
+.ecg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+.ecgLine{
+  position:absolute;
+  top:50%;
+  left:0;
+  width:300%;
+  height:90px;
+  transform:translateY(-50%);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='90' viewBox='0 0 360 90'%3E%3Cpolyline points='0,45 45,45 60,45 70,20 85,75 100,8 120,45 170,45 190,45 205,28 220,62 235,45 360,45' fill='none' stroke='%23ff4fc3' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:repeat-x;
+  animation:move 3s linear infinite;
+  filter:drop-shadow(0 0 8px #ff4fc3);
+}
+@keyframes move{
+  to{transform:translate3d(-360px,-50%,0)}
+}
+.bpm{
+  position:absolute;
+  right:20px;
+  top:27px;
+  color:#ff5dbe;
+  font-size:44px;
+  font-weight:900;
+}
+.bpm small{
+  display:block;
+  font-size:14px;
+  color:#fff;
+}
+.btn{
+  border:0;
+  padding:13px 26px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--main),var(--purple));
+  color:#fff;
+  font-size:17px;
+  font-weight:900;
+}
+.letter{
+  display:none;
+  margin-top:14px;
+  background:white;
+  border-radius:18px;
+  padding:16px;
+  color:#7d2b8f;
+  line-height:1.8;
+}
+footer{
+  text-align:center;
+  margin-top:20px;
+  font-size:18px;
+  font-weight:900;
+  color:var(--purple);
+}
+.fly{
+  position:fixed;
+  pointer-events:none;
+  animation:fly 2s ease-out forwards;
+  z-index:99;
+}
+@keyframes fly{
+  to{transform:translateY(-105vh) rotate(360deg) scale(1.4);opacity:0}
+}
+@media(max-width:850px){
+  .top,.timer,.bottomGrid{grid-template-columns:1fr}
+  h1{font-size:46px}
+  .photo{width:220px;height:220px}
+}
+@media(max-width:420px){
+  .wrap{padding:15px;border-radius:26px}
+  .grid{gap:7px}
+  .time b{font-size:24px}
+  .time span{font-size:12px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <h1>Jannat ♡</h1>
+  <div class="sub">আমার পুকি বেবি 🧸💕</div>
+
+  <div class="top">
+    <div class="card">
+      <div class="msg">💖 তুমি আমার পৃথিবীর সবচেয়ে সুন্দর অনুভূতি।</div>
+      <div class="msg">🌙 Jannat — আমার শান্তির ঠিকানা ✨</div>
+      <div class="msg">🌸 তোমার হাসিটাই আমার দিনের আলো ♡</div>
+    </div>
+
+    <div class="photoBox">
+      <img src="jannat.jpg" class="photo" alt="Jannat">
+      <div class="caption">My Jannat ♡</div>
+    </div>
+
+    <div class="card" style="text-align:center">
+      <div class="title">Theme</div>
+      <button class="themeBtn" onclick="setTheme('')">🌸 Pink</button>
+      <button class="themeBtn" onclick="setTheme('night')">🌙 Night</button>
+      <button class="themeBtn" onclick="setTheme('rose')">🌹 Rose</button>
+      <button class="themeBtn" onclick="setTheme('ocean')">💎 Ocean</button>
+    </div>
+  </div>
+
+  <div class="box timer">
+    <div>
+      <div class="title">আমাদের প্রথম কথা হয়েছিলো ♡</div>
+      <div class="start">১১ অক্টোবর ২০২৫<br>সকাল ৯:৩০ মিনিটে</div>
+    </div>
+    <div>
+      <div class="title">তোমাকে ভালোবাসি আজ পর্যন্ত ⏱️</div>
+      <div class="grid">
+        <div class="time"><b id="d">0</b><span>দিন</span></div>
+        <div class="time"><b id="h">0</b><span>ঘণ্টা</span></div>
+        <div class="time"><b id="m">0</b><span>মিনিট</span></div>
+        <div class="time"><b id="s">0</b><span>সেকেন্ড</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottomGrid">
+    <div class="box" style="text-align:center">
+      <div class="title">আমাদের মোট Heart 💗</div>
+      <button class="heartBtn" id="heartBtn">💖</button>
+      <div class="count"><span id="heartCount">0</span> টা</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Live Love Heartbeat Meter 💗</div>
+      <div class="ecg">
+        <div class="ecgLine"></div>
+        <div class="bpm">100 <small>BPM Love Signal</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottomGrid">
+    <div class="box">
+      <div class="title">Live Clock 🕒</div>
+      <div id="clock" style="font-size:32px;font-weight:900;color:var(--main);text-align:center"></div>
+      <div id="date" style="font-weight:900;color:var(--purple);text-align:center"></div>
+    </div>
+
+    <div class="box" style="text-align:center">
+      <button class="btn" onclick="toggleLetter()">💌 Read My Letter</button>
+      <div class="letter" id="letter">
+        Jannat, তুমি আমার জীবনের সবচেয়ে সুন্দর অধ্যায়।  
+        তোমার হাসি, তোমার কথা, তোমার ছোট ছোট অভিমান—সবকিছুই আমার কাছে অনেক প্রিয়।  
+        তুমি থাকলেই আমার পৃথিবীটা অনেক সুন্দর লাগে। ♡
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    ✨ Made with ∞ Love ✨ <br>
+    By <b>Salim</b> For <b>Jannat</b> 🧸💕
+  </footer>
+</div>
+
+<script>
+const firstTalk = new Date("2025-10-11T09:30:00");
+
+function setTheme(theme){
+  document.body.className = theme;
+  localStorage.setItem("jannat_theme", theme);
+}
+setTheme(localStorage.getItem("jannat_theme") || "");
+
+function updateTimer(){
+  let diff = new Date() - firstTalk;
+  if(diff < 0) diff = 0;
+  const d = Math.floor(diff / 86400000); diff %= 86400000;
+  const h = Math.floor(diff / 3600000); diff %= 3600000;
+  const m = Math.floor(diff / 60000); diff %= 60000;
+  const s = Math.floor(diff / 1000);
+  document.getElementById("d").textContent = d;
+  document.getElementById("h").textContent = h;
+  document.getElementById("m").textContent = m;
+  document.getElementById("s").textContent = s;
+}
+updateTimer();
+setInterval(updateTimer,1000);
+
+function updateClock(){
+  const now = new Date();
+  document.getElementById("clock").textContent = now.toLocaleTimeString("bn-BD");
+  document.getElementById("date").textContent = now.toLocaleDateString("bn-BD",{
+    weekday:"long",year:"numeric",month:"long",day:"numeric"
+  });
+}
+updateClock();
+setInterval(updateClock,1000);
+
+const heartBtn = document.getElementById("heartBtn");
+const heartCount = document.getElementById("heartCount");
+let total = parseInt(localStorage.getItem("jannat_total_hearts") || "0",10);
+heartCount.textContent = total;
+
+heartBtn.onclick = ()=>{
+  total++;
+  localStorage.setItem("jannat_total_hearts",total);
+  heartCount.textContent = total;
+
+  for(let i=0;i<10;i++){
+    const e=document.createElement("div");
+    e.className="fly";
+    e.textContent=["💖","💕","💗","🌸","✨"][Math.floor(Math.random()*5)];
+    e.style.left=Math.random()*100+"vw";
+    e.style.top="85vh";
+    e.style.fontSize=(20+Math.random()*22)+"px";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),2000);
+  }
+};
+
+function toggleLetter(){
+  const l=document.getElementById("letter");
+  l.style.display = l.style.display==="block" ? "none" : "block";
+}
+</script>
+</body>
+</html>
